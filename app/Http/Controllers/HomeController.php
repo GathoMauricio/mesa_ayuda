@@ -3,26 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Ticket;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
-        return view('home');
+        #TODO: seleccionar solo tickets dependiendo el rol
+        $tickets =  Ticket::orderBy('folio', 'DESC')->paginate(5);
+        return view('home', compact('tickets'));
     }
 }

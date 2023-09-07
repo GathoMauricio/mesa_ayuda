@@ -16,7 +16,7 @@ class User extends Authenticatable
     protected $fillable = [
         'rol_id',
         'cliente_id',
-        'status',
+        'estatus',
         'nombre',
         'apaterno',
         'amaterno',
@@ -40,7 +40,7 @@ class User extends Authenticatable
         static::creating(function ($query) {
             $query->password = bcrypt($query->password);
             $query->imagen = 'perfil.png';
-            $query->status = 1;
+            $query->estatus = 1;
             $query->api_token = \Str::random(60);
         });
     }

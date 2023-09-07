@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('rol_id')->nullable();
             $table->bigInteger('cliente_id')->nullable();
-            $table->boolean('status')->default(1);
+            $table->boolean('estatus')->default(1);
             $table->string('nombre');
             $table->string('apaterno')->nullable();
             $table->string('amaterno')->nullable();
