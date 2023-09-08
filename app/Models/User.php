@@ -41,7 +41,6 @@ class User extends Authenticatable
             $query->password = bcrypt($query->password);
             $query->imagen = 'perfil.png';
             $query->estatus = 1;
-            $query->api_token = \Str::random(60);
         });
     }
 
