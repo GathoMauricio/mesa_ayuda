@@ -16,7 +16,7 @@ class TicketSeeder extends Seeder
     {
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 6,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',
@@ -24,7 +24,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 2,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Normal',
@@ -32,7 +32,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 3,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Urgente',
@@ -40,7 +40,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 4,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Normal',
@@ -48,7 +48,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 6,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Urgente',
@@ -56,7 +56,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 2,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',
@@ -72,15 +72,15 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 5,
             'usuario_final_id' => 1,
             'folio' => '000001',
-            'prioridad' => 'Normal',
+            'prioridad' => 'Alta',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor. Cras scelerisque,',
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 4,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',
@@ -88,7 +88,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 6,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Urgente',
@@ -96,7 +96,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 2,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Normal',
@@ -107,12 +107,12 @@ class TicketSeeder extends Seeder
             'sintoma_id' => 1,
             'usuario_final_id' => 1,
             'folio' => '000001',
-            'prioridad' => 'Baja',
+            'prioridad' => 'Alta',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor',
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 6,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',
@@ -120,15 +120,15 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 5,
             'usuario_final_id' => 1,
             'folio' => '000001',
-            'prioridad' => 'Urgente',
+            'prioridad' => 'Alta',
             'descripcion' => 'Phasellus ut tellus velit. Fusce semper sagittis erat id euismod. Donec feugiat, nulla sit amet aliquam porta, purus ligula molestie orci, eget rhoncus nulla magna eu turpis.',
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 4,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Normal',
@@ -136,7 +136,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 3,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',
@@ -144,10 +144,10 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 2,
             'usuario_final_id' => 1,
             'folio' => '000001',
-            'prioridad' => 'Normal',
+            'prioridad' => 'Alta',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor. Cras scelerisque, ex ut lacinia',
         ]);
         Ticket::create([
@@ -160,7 +160,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 4,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Normal',
@@ -168,7 +168,7 @@ class TicketSeeder extends Seeder
         ]);
         Ticket::create([
             'estatus_id' => 1,
-            'sintoma_id' => 1,
+            'sintoma_id' => 6,
             'usuario_final_id' => 1,
             'folio' => '000001',
             'prioridad' => 'Baja',

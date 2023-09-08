@@ -11,7 +11,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'rol_id' => 1,
-            'cliente_id' => null,
+            'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Jack',
             'apaterno' => 'Nightmare',

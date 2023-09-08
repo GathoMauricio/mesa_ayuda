@@ -19,10 +19,19 @@ class Ticket extends Model
         'descripcion',
     ];
 
+    protected static function boot()
+    {
+        parent::boot();
+        static::creating(function ($query) {
+            $query->estatus_id = 1;
+            $query->usuario_final_id = \Auth::user()->id;
+        });
+    }
+
     public function estatus()
     {
         return $this->belongsTo(
-            'App\Models\Estatus',
+            'App\Models\EstatusTicket',
             'estatus_id',
             'id'
         )

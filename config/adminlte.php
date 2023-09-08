@@ -297,8 +297,8 @@ return [
         //     'topnav_right' => true,
         // ],
         [
-            'text' => 'Nuevo Ticket',
-            'url'  => '/',
+            'text' => 'Iniciar Ticket',
+            'url'  => '/iniciar_ticket',
             'icon' => 'fas fa-fw fa-file',
             'topnav_right' => true,
         ],

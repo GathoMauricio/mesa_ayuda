@@ -15,7 +15,8 @@
                 <th scope="col">Prioridad</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">Usuario</th>
-                <th scope="col">Sintoma</th>
+                <th scope="col">Área y Categoría</th>
+                <th scope="col">Síntoma</th>
                 <th scope="col">Descripción</th>
                 <th scope="col">&nbsp;</th>
             </tr>
@@ -25,21 +26,30 @@
                 <tr>
                     <th scope="row">{{ $ticket->folio }}</th>
                     <td>{{ $ticket->prioridad }}</td>
-                    <td>{{ $ticket->estatus_id }}</td>
+                    <td>{{ $ticket->estatus->estatus }}</td>
                     <td>
                         {{ $ticket->usuario_final->nombre }} {{ $ticket->usuario_final->apaterno }}
                         {{ $ticket->usuario_final->amaterno }}
                         <br>
                         <a href="mailto:{{ $ticket->usuario_final->email }}">{{ $ticket->usuario_final->email }}</a>
+                        <br>
+                        <i>{{ $ticket->usuario_final->cliente->razon_social }}</i>
                     </td>
-                    <td>{{ $ticket->sintoma_id }}</td>
+                    <td>
+                        <small>{{ $ticket->sintoma->categoria->area->area }}
+                            <br>
+                            {{ $ticket->sintoma->categoria->categoria }}<small>
+                    </td>
+                    <td>
+                        {{ $ticket->sintoma->sintoma }}
+                    </td>
                     <td>{{ $ticket->descripcion }}</td>
                     <td>
-                        <a href="#" class="text-info">Abrir</a>
+                        {{--  <a href="#" class="text-info">Abrir</a>
                         <br>
                         <a href="#" class="text-warning">Editar</a>
                         <br>
-                        <a href="#" class="text-danger">Eliminar</a>
+                        <a href="#" class="text-danger">Eliminar</a>  --}}
                     </td>
                 </tr>
             @endforeach
@@ -53,5 +63,5 @@
 @stop
 
 @section('js')
-
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 @stop
