@@ -33,7 +33,7 @@ class TicketController extends Controller
         return view('tickets.create', compact('areas'));
     }
 
-    public function store(\App\http\Requests\TicketRequest $request)
+    public function store(Request $request)
     {
         $ticket = Ticket::create([
             'sintoma_id' => $request->sintoma_id,
