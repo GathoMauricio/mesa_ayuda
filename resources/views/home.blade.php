@@ -53,6 +53,16 @@
                     </td>
                 </tr>
             @endforeach
+
+            @if (count($tickets) <= 0)
+                <tr>
+                    <td colspan="8">
+                        <div class="alert alert-info text-center" role="alert">
+                            No se encontraron registros.
+                        </div>
+                    </td>
+                </tr>
+            @endif
         </tbody>
     </table>
     <span class="float-right">{{ $tickets->links() }}</span>

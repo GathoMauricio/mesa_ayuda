@@ -28,8 +28,10 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('imagen')->default('perfil.png');
             $table->string('api_token')->nullable();
-            $table->softDeletes();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
