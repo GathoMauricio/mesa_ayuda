@@ -41,7 +41,8 @@ class TicketController extends Controller
             'prioridad' => $request->prioridad,
             'descripcion' => $request->descripcion,
         ]);
-        if ($ticket->save()) {
+        if ($ticket) {
+            #TODO: Notificar via email a los usuarios correspondientes
             \Session::flash('success', 'El ticket se creo correctamente con el folio ' . $ticket->folio);
             return redirect()->route('home');
         } else {
