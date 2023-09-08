@@ -8,7 +8,7 @@ window.cargarCategorias = (value) => {
     if (value.length > 0) {
         $("#cbo_categoria").html(``);
         axios
-            .get("/api/cargar_categorias/" + value)
+            .get("api/cargar_categorias/" + value)
             .then((response) => {
                 let opciones = `<option value>--Seleccione la categoría--</option>`;
                 $.each(response.data, (index, item) => {
@@ -35,7 +35,7 @@ window.cargarSintomas = (value) => {
     if (value.length > 0) {
         $("#cbo_sintoma").html(``);
         axios
-            .get("/api/cargar_sintomas/" + value)
+            .get("api/cargar_sintomas/" + value)
             .then((response) => {
                 let opciones = `<option value>--Seleccione el sintoma--</option>`;
                 $.each(response.data, (index, item) => {
