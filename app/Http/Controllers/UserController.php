@@ -15,7 +15,7 @@ class UserController extends Controller
             if (\Hash::check($request->password, $user->password)) {
                 $token = $user->createToken('auth_token')->plainTextToken;
                 return response()->json([
-                    "estatus" => 0,
+                    "estatus" => 1,
                     "mensaje" => "Inicio de sesión correcto.",
                     "auth_token" => $token,
                     "data" => $user,
