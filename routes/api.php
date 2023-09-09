@@ -7,6 +7,8 @@ Route::post('api-login', [\App\Http\Controllers\UserController::class, 'apiLogin
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('api-datos-usuario', [\App\Http\Controllers\UserController::class, 'apiDatosUsuario']);
+    Route::get('api-home', [App\Http\Controllers\HomeController::class, 'apiHome']);
+    Route::get('api-logout', [\App\Http\Controllers\UserController::class, 'apiLogout']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
