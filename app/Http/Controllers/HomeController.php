@@ -26,8 +26,9 @@ class HomeController extends Controller
         foreach ($tickets as $ticket) {
             $datos[] = [
                 'id' => $ticket->id,
-                'area' => $ticket->sintoma->categoria->area->area,
                 'estatus' => $ticket->estatus->estatus,
+                'area' => $ticket->sintoma->categoria->area->area,
+                'categoria' => $ticket->sintoma->categoria->categoria,
                 'sintoma' => $ticket->sintoma->sintoma,
                 'usuarioFinal' => $ticket->usuario_final->nombre . ' ' . $ticket->usuario_final->apaterno . ' ' . $ticket->usuario_final->amaterno,
                 'folio' => $ticket->folio,
