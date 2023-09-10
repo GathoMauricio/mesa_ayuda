@@ -37,7 +37,7 @@ class TicketController extends Controller
     {
         $ticket = Ticket::create([
             'sintoma_id' => $request->sintoma_id,
-            'folio' => 'TEST-000001',
+            'folio' => 'T-' . \Auth::user()->cliente_id . '|' . random_int(100000, 999999), #TODO: Crear folio consecutivo por cliente T-1|00000005
             'prioridad' => $request->prioridad,
             'descripcion' => $request->descripcion,
         ]);

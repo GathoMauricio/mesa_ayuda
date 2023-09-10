@@ -24,7 +24,7 @@ class Ticket extends Model
         parent::boot();
         static::creating(function ($query) {
             $query->estatus_id = 1;
-            $query->usuario_final_id = \Auth::user()->id;
+            $query->usuario_final_id = isset(\Auth::user()->id) ? \Auth::user()->id : 1;
         });
     }
 

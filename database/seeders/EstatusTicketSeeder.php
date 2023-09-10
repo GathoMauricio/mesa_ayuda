@@ -16,7 +16,7 @@ class EstatusTicketSeeder extends Seeder
     {
         EstatusTicket::create([
             'id' => 1,
-            'estatus' => 'Iniciado',
+            'estatus' => 'Creado',
             'descripcion' => 'El ticket ha sido creado.'
         ]);
         EstatusTicket::create([
