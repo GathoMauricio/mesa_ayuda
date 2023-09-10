@@ -15,13 +15,13 @@ class HomeController extends Controller
     public function index()
     {
         #TODO: seleccionar solo tickets dependiendo el rol
-        $tickets =  Ticket::orderBy('folio', 'DESC')->paginate(5);
+        $tickets =  Ticket::orderBy('id', 'DESC')->paginate(5);
         return view('home', compact('tickets'));
     }
     public function apiHome()
     {
         #TODO: seleccionar solo tickets dependiendo el rol
-        $tickets =  Ticket::orderBy('folio', 'DESC')->get();
+        $tickets =  Ticket::orderBy('id', 'DESC')->get();
         $datos = [];
         foreach ($tickets as $ticket) {
             $datos[] = [
