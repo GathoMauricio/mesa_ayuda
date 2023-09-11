@@ -18,7 +18,7 @@ class UserController extends Controller
                     "estatus" => 1,
                     "mensaje" => "Inicio de sesión correcto.",
                     "auth_token" => $token,
-                    "data" => $user,
+                    "usuario" => $user,
                 ]);
             } else {
                 return response()->json([
@@ -49,7 +49,7 @@ class UserController extends Controller
         return response()->json([
             "estatus" => 1,
             "mensaje" => "Información del usuario.",
-            "data" => auth()->user(),
+            "usuario" => auth()->user(),
         ]);
     }
 }

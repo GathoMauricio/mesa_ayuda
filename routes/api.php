@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::post('api-login', [\App\Http\Controllers\UserController::class, 'apiLogin']);
+Route::post('api-ultima-version-android', [\App\Http\Controllers\HomeController::class, 'apiUltimaVersionAndroid']);
+Route::get('api-descargar-android-app', [\App\Http\Controllers\HomeController::class, 'descargarAndroidApp']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('api-datos-usuario', [\App\Http\Controllers\UserController::class, 'apiDatosUsuario']);

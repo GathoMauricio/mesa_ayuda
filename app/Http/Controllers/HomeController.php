@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['apiUltimaVersionAndroid', 'descargarAndroidApp']);
     }
 
     public function index()
@@ -41,5 +41,18 @@ class HomeController extends Controller
             "mensaje" => "Datos obtenidos",
             "datos" => $datos
         ]);
+    }
+
+    public function apiUltimaVersionAndroid()
+    {
+        return response()->json([
+            'estatus' => 1,
+            'última_version' => "0_0_2",
+        ]);
+    }
+
+    public function descargarAndroidApp()
+    {
+        return response()->download(storage_path('app/public/android_app/mesa_ayuda_0_0_2.apk'));
     }
 }
