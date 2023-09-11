@@ -53,6 +53,6 @@ class HomeController extends Controller
 
     public function descargarAndroidApp()
     {
-        return response()->download(storage_path('app/public/android_app/mesa_ayuda_0_0_2.apk'));
+        return response()->download(storage_path('app/public/android_app/mesa_ayuda_' . env('ANDROID_VERSION') . '.apk'));
     }
 }
