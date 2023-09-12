@@ -12,18 +12,27 @@ class UserController extends Controller
 
         $user = User::where('email', $request->email)->first();
         if ($user) {
-            if (\Hash::check($request->password, $user->password)) {
-                $token = $user->createToken('auth_token')->plainTextToken;
-                return response()->json([
-                    "estatus" => 1,
-                    "mensaje" => "Inicio de sesión correcto.",
-                    "auth_token" => $token,
-                    "usuario" => $user,
-                ]);
+
+            if ($user->estatus == 1) {
+                if (\Hash::check($request->password, $user->password)) {
+                    $token = $user->createToken('auth_token')->plainTextToken;
+                    return response()->json([
+                        "estatus" => 1,
+                        "mensaje" => "Inicio de sesión correcto.",
+                        "auth_token" => $token,
+                        "usuario" => $user,
+                    ]);
+                } else {
+                    return response()->json([
+                        "estatus" => 0,
+                        "mensaje" => "Su contraseña de acceso es incorrecta.",
+                    ]);
+                }
             } else {
+                $user->tokens()->delete();
                 return response()->json([
                     "estatus" => 0,
-                    "mensaje" => "Su contraseña de acceso es incorrecta.",
+                    "mensaje" => "El usuario se encuentra inactivo por favor verifiquélo con su supervisor.",
                 ]);
             }
         } else {
