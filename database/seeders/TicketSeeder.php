@@ -21,6 +21,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Web',
             'descripcion' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla turpis augue, tristique venenatis mi feugiat at.',
         ]);
         Ticket::create([
@@ -29,6 +30,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Normal',
+            'origen' => 'Android',
             'descripcion' => 'mus mi imperdiet. Suspendisse mauris nisi, venenatis vel arcu sed, ultrices volutpat velit. Aenean faucibus porttitor nisi, gravida porta massa lacinia vitae. Aliquam rutrum, eros',
         ]);
         Ticket::create([
@@ -37,6 +39,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Urgente',
+            'origen' => 'Web',
             'descripcion' => 'Morbi facilisis, augue vel mollis gravida, eros magna euismod ligula, sit amet molestie elit risus in felis. Sed ac mauris ipsum. Suspendisse non odio ',
         ]);
         Ticket::create([
@@ -45,6 +48,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Normal',
+            'origen' => 'Web',
             'descripcion' => 'Pellentesque dui nunc, ultricies eget sapien vel, sodales lobortis est. Integer non elementum arcu, a consequat enim. Vestibulum scelerisque ex eu odio porttitor mattis. Praesent ',
         ]);
         Ticket::create([
@@ -53,6 +57,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Urgente',
+            'origen' => 'Android',
             'descripcion' => 'mi imperdiet. Suspendisse mauris nisi, venenatis vel arcu sed, ultrices volutpat velit. Aenean faucibus porttitor nisi, gravida porta massa lacinia vitae. Aliquam rutrum, eros ac pharetra suscipit, felis eros suscipit lectus, rutrum hendrerit est ante ac ex. Phasellus lacinia pellentesque tellus. Fusce ut sodales velit. Morbi facilisis, augue vel mollis gravida, eros magna euismod ligula, sit amet molestie elit risus in felis. ',
         ]);
         Ticket::create([
@@ -61,6 +66,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Android',
             'descripcion' => 'Praesent tempus lacus ac dui lobortis condimentum. Aliquam mattis eleifend faucibus. Fusce finibus sodales tellus eget imperdiet. Praesent in sapien viverra,',
         ]);
         Ticket::create([
@@ -69,6 +75,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Urgente',
+            'origen' => 'Web',
             'descripcion' => 'purus condimentum. Morbi eget tempor massa, quis vulputate ante. Quisque accumsan commodo luctus. Interdum et malesuada fames ',
         ]);
         Ticket::create([
@@ -77,6 +84,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Alta',
+            'origen' => 'Android',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor. Cras scelerisque,',
         ]);
         Ticket::create([
@@ -85,6 +93,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Web',
             'descripcion' => 'ultricies eget sapien vel, sodales lobortis est. Integer non elementum arcu, a consequat enim. Vestibulum scelerisque ex eu odio porttitor mattis. Praesent tempus lacus ac dui lobortis condimentum. Aliquam mattis eleifend faucibus. Fusce finibus sodales tellus eget imperdiet.',
         ]);
         Ticket::create([
@@ -93,6 +102,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Urgente',
+            'origen' => 'Android',
             'descripcion' => 'Aliquam lectus dolor, suscipit vel ante ac, accumsan interdum nunc. Aenean viverra condimentum justo, quis posuere neque iaculis at. Curabitur facilisis metus sit amet est ornare,',
         ]);
         Ticket::create([
@@ -101,6 +111,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Normal',
+            'origen' => 'Android',
             'descripcion' => 'vitae malesuada purus condimentum. Morbi eget tempor massa, quis vulputate ante. Quisque accumsan commodo luctus.',
         ]);
         Ticket::create([
@@ -109,6 +120,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Alta',
+            'origen' => 'Web',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor',
         ]);
         Ticket::create([
@@ -117,6 +129,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Web',
             'descripcion' => 'netus et malesuada fames ac turpis egestas. Donec ullamcorper, enim ut condimentum accumsan, tortor lacus sollicitudin justo, id commodo mi velit eu lectus.',
         ]);
         Ticket::create([
@@ -125,6 +138,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Alta',
+            'origen' => 'Android',
             'descripcion' => 'Phasellus ut tellus velit. Fusce semper sagittis erat id euismod. Donec feugiat, nulla sit amet aliquam porta, purus ligula molestie orci, eget rhoncus nulla magna eu turpis.',
         ]);
         Ticket::create([
@@ -133,6 +147,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Normal',
+            'origen' => 'Web',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor. Cras scelerisque, ',
         ]);
         Ticket::create([
@@ -141,6 +156,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Android',
             'descripcion' => 'Quisque accumsan commodo luctus. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
         ]);
         Ticket::create([
@@ -149,6 +165,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Alta',
+            'origen' => 'Web',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur at luctus tortor. Cras scelerisque, ex ut lacinia',
         ]);
         Ticket::create([
@@ -157,6 +174,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Urgente',
+            'origen' => 'Android',
             'descripcion' => 'Mauris pulvinar turpis sed ex sagittis ullamcorper. Praesent vitae enim vitae dui dapibus lobortis quis at urna. Pellentesque habitant',
         ]);
         Ticket::create([
@@ -165,6 +183,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Normal',
+            'origen' => 'Web',
             'descripcion' => 'id commodo mi velit eu lectus. Vivamus vehicula, elit a pulvinar blandit,',
         ]);
         Ticket::create([
@@ -173,6 +192,7 @@ class TicketSeeder extends Seeder
             'usuario_final_id' => 1,
             'folio' => 'T-1|' . random_int(100000, 999999),
             'prioridad' => 'Baja',
+            'origen' => 'Android',
             'descripcion' => 'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec ullamcorper, enim ut condimentum accumsan, tortor lacus sollicitudin justo, id commodo mi velit eu lectus. Vivamus vehicula, elit a pulvinar blandit, felis sapien rhoncus enim, vel fringilla massa odio non dui. Duis sed efficitur sapien.',
         ]);
     }

@@ -47,7 +47,7 @@ class HomeController extends Controller
     {
         return response()->json([
             'estatus' => 1,
-            'última_version' => "0_0_2",
+            'última_version' => env('ANDROID_VERSION'),
         ]);
     }
 

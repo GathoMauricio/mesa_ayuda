@@ -21,6 +21,7 @@ class CreateTicketsTable extends Migration
             $table->string('folio');
             $table->string('prioridad');
             $table->text('descripcion');
+            $table->text('origen');
             $table->softDeletes();
             $table->timestamps();
         });

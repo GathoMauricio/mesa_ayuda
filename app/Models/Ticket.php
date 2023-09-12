@@ -17,6 +17,7 @@ class Ticket extends Model
         'folio',
         'prioridad',
         'descripcion',
+        'origen',
     ];
 
     protected static function boot()
