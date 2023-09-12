@@ -29,15 +29,19 @@ class TicketController extends Controller
 
     public function create()
     {
-        $areas = Area::orderBy('area')->get();
-        return view('tickets.create', compact('areas'));
+        if (\Auth::user()->rol_id != 1) {
+            $areas = Area::orderBy('area')->get();
+            return view('tickets.create', compact('areas'));
+        } else {
+            return redirect('/');
+        }
     }
 
     public function store(Request $request)
     {
         $ticket = Ticket::create([
             'sintoma_id' => $request->sintoma_id,
-            'folio' => 'T-' . \Auth::user()->cliente_id . '|' . random_int(100000, 999999), #TODO: Crear folio consecutivo por cliente T-1|00000005
+            'folio' => 'T-' . $this->generaFolio(), #TODO: Crear folio consecutivo por cliente T-1|00000005
             'prioridad' => $request->prioridad,
             'descripcion' => $request->descripcion,
             'origen' => 'Web'
@@ -49,6 +53,38 @@ class TicketController extends Controller
         } else {
             \Session::flash('error', 'Error al intentar crear el registro por favor intente de nuevo.');
             return redirect()->back();
+        }
+    }
+
+    private function generaFolio()
+    {
+        $pre = \Auth::user()->cliente_id . '|';
+        $last_ticket = Ticket::where('folio', 'like', '%' . $pre . '%')->orderBy('folio', 'DESC')->first();
+        if ($last_ticket) {
+            $parts = explode('-', $last_ticket->folio);
+            $newFolio = intval($parts[1]) + 1;
+            $folioString = $pre;
+            if ($newFolio <= 9) {
+                $folioString .= '00000' . $newFolio;
+            }
+            if ($newFolio > 9 && $newFolio <= 99) {
+                $folioString .= '0000' . $newFolio;
+            }
+            if ($newFolio > 99 && $newFolio <= 999) {
+                $folioString .= '000' . $newFolio;
+            }
+            if ($newFolio > 999 && $newFolio <= 9999) {
+                $folioString .= '00' . $newFolio;
+            }
+            if ($newFolio > 9999 && $newFolio <= 99999) {
+                $folioString .= '0' . $newFolio;
+            }
+            if ($newFolio > 99999) {
+                $folioString .=  $newFolio;
+            }
+            return $folioString;
+        } else {
+            return $pre . '000001';
         }
     }
 
