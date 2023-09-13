@@ -11,8 +11,8 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         User::create([
-            'rol_id' => 1,
-            'cliente_id' => 0, //SuperUsuario
+            'rol_id' => 2,
+            'cliente_id' => 1, //SuperUsuario
             'estatus' => 1,
             'nombre' => 'Jacky',
             'apaterno' => 'skellington',
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'supervisor@mail.com',
+            'email' => 'administrador@mail.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',
@@ -61,13 +61,13 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'supervisor@mail.com',
+            'email' => 'usuario_final@mail.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',
         ]);
         User::create([
-            'rol_id' => 5, //Supervisor
+            'rol_id' => 5, //Soporte Técnico
             'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Soporte Tecnico',
@@ -75,7 +75,7 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'supervisor@mail.com',
+            'email' => 'soporte_tecnico@mail.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',

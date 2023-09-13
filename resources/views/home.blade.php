@@ -12,6 +12,7 @@
         <thead>
             <tr style="background-color:#081302a9">
                 <th scope="col">Folio</th>
+                <th scope="col">Origen</th>
                 <th scope="col">Prioridad</th>
                 <th scope="col">Estatus</th>
                 <th scope="col">Usuario</th>
@@ -25,6 +26,7 @@
             @foreach ($tickets as $key => $ticket)
                 <tr>
                     <th scope="row">{{ $ticket->folio }}</th>
+                    <td>{{ $ticket->origen }}</td>
                     <td>{{ $ticket->prioridad }}</td>
                     <td>{{ $ticket->estatus->estatus }}</td>
                     <td>

@@ -41,7 +41,7 @@ class TicketController extends Controller
     {
         $ticket = Ticket::create([
             'sintoma_id' => $request->sintoma_id,
-            'folio' => 'T-' . $this->generaFolio(), #TODO: Crear folio consecutivo por cliente T-1|00000005
+            'folio' => 'T-' . $this->generaFolio(),
             'prioridad' => $request->prioridad,
             'descripcion' => $request->descripcion,
             'origen' => 'Web'
@@ -55,13 +55,36 @@ class TicketController extends Controller
             return redirect()->back();
         }
     }
+    public function apiStoreTicket(Request $request)
+    {
+        $ticket = Ticket::create([
+            'sintoma_id' => $request->sintomaId,
+            'folio' => 'T-' . $this->generaFolio(),
+            'prioridad' => $request->prioridad,
+            'descripcion' => $request->descripcion,
+            'origen' => 'Móvil'
+        ]);
+        if ($ticket) {
+            #TODO: Notificar via email a los usuarios correspondientes
+            return response()->json([
+                'estatus' => 1,
+                'mensaje' => 'El ticket se creo correctamente con el folio ' . $ticket->folio,
+                'ticket' => $ticket
+            ]);
+        } else {
+            return response()->json([
+                'estatus' => 0,
+                'mensaje' => 'Error al intentar crear el registro por favor intente de nuevo.'
+            ]);
+        }
+    }
 
     private function generaFolio()
     {
         $pre = \Auth::user()->cliente_id . '|';
         $last_ticket = Ticket::where('folio', 'like', '%' . $pre . '%')->orderBy('folio', 'DESC')->first();
         if ($last_ticket) {
-            $parts = explode('-', $last_ticket->folio);
+            $parts = explode('|', $last_ticket->folio);
             $newFolio = intval($parts[1]) + 1;
             $folioString = $pre;
             if ($newFolio <= 9) {
