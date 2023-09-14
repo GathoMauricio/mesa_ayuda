@@ -47,11 +47,11 @@
                     </td>
                     <td>{{ $ticket->descripcion }}</td>
                     <td>
-                        {{--  <a href="#" class="text-info">Abrir</a>
+                        <a href="{{ url('ver_ticket', $ticket->id) }}" class="text-info">Abrir</a>
                         <br>
-                        <a href="#" class="text-warning">Editar</a>
+                        <a href="{{ url('editarr_ticket', $ticket->id) }}"class="text-warning">Editar</a>
                         <br>
-                        <a href="#" class="text-danger">Eliminar</a>  --}}
+                        <a href="javascript:void(0)" class="text-danger">Eliminar</a>
                     </td>
                 </tr>
             @endforeach
