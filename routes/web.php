@@ -9,6 +9,7 @@ Route::get('/iniciar_ticket', [\App\Http\Controllers\TicketController::class, 'c
 Route::post('/guardar_ticket', [\App\Http\Controllers\TicketController::class, 'store']);
 Route::get('/ver_ticket/{id}', [\App\Http\Controllers\TicketController::class, 'show']);
 Route::get('/editar_ticket/{id}', [\App\Http\Controllers\TicketController::class, 'edit']);
+Route::put('updater_ticket/{id}', [\App\Http\Controllers\TicketController::class, 'update']);
 #Clientes
 Route::resource('/clientes', ClienteController::class);
 

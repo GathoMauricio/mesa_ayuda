@@ -48,11 +48,11 @@
                     <td>{{ $ticket->descripcion }}</td>
                     <td>
                         <a href="{{ url('ver_ticket', $ticket->id) }}" class="text-info">Abrir</a>
-                        @if (Auth::user()->rol_id == 2 && false)
+                        @if (Auth::user()->rol_id == 3)
                             <br>
-                            <a href="{{ url('editarr_ticket', $ticket->id) }}"class="text-warning">Editar</a>
-                            <br>
-                            <a href="javascript:void(0)" class="text-danger">Eliminar</a>
+                            <a href="{{ url('editar_ticket', $ticket->id) }}"class="text-warning">Editar</a>
+                            {{--  <br>
+                            <a href="javascript:void(0)" class="text-danger">Eliminar</a>  --}}
                         @endif
                     </td>
                 </tr>

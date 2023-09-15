@@ -43,6 +43,20 @@ class TicketController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'categoria' => 'required',
+            'area' => 'required',
+            'sintoma_id' => 'required',
+            'prioridad' => 'required',
+            'descripcion' => 'required',
+        ], [
+            'categoria.required' => 'Campo requerido.',
+            'area.required' => 'Campo requerido.',
+            'sintoma_id.required' => 'Campo requerido.',
+            'prioridad.required' => 'Campo requerido.',
+            'descripcion.required' => 'Campo requerido.',
+        ]);
+
         $ticket = Ticket::create([
             'sintoma_id' => $request->sintoma_id,
             'folio' => 'T-' . $this->generaFolio(),
@@ -124,12 +138,36 @@ class TicketController extends Controller
     public function edit($id)
     {
         $ticket = Ticket::findOrFail($id);
-        return view('tickets.show', compact('ticket'));
+        $areas = Area::orderBy('area')->get();
+        return view('tickets.edit', compact('ticket', 'areas'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'categoria' => 'required',
+            'area' => 'required',
+            'sintoma_id' => 'required',
+            'prioridad' => 'required',
+            'descripcion' => 'required',
+        ], [
+            'categoria.required' => 'Campo requerido.',
+            'area.required' => 'Campo requerido.',
+            'sintoma_id.required' => 'Campo requerido.',
+            'prioridad.required' => 'Campo requerido.',
+            'descripcion.required' => 'Campo requerido.',
+        ]);
+        $ticket = Ticket::findOrFail($id);
+        $ticket->sintoma_id = $request->sintoma_id;
+        $ticket->prioridad = $request->prioridad;
+        $ticket->descripcion = $request->descripcion;
+        if ($ticket->save()) {
+            \Session::flash('success', 'El ticket ' . $ticket->folio . ' se actualizó correctamente');
+            return redirect()->route('home');
+        } else {
+            \Session::flash('error', 'Error al intentar actualizar el registro por favor intente de nuevo.');
+            return redirect()->back();
+        }
     }
 
     public function destroy($id)
