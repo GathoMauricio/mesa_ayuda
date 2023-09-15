@@ -25,10 +25,18 @@
                                 </td>
                                 <td>
                                     <h4>{{ $cliente->razon_social }}</h4>
+                                    <h6>
+                                        {{ $cliente->getAdministrador()->nombre }}
+                                        {{ $cliente->getAdministrador()->apaterno }}
+                                        <br>
+                                        {{ $cliente->getAdministrador()->email }}
+                                        <br>
+                                        {{ $cliente->getAdministrador()->telefono }}
+                                    </h6>
                                 </td>
                             </tr>
                         </table>
-                        <br>
+
                         <ul>
                             <li>
                                 <b>Empleados:</b>
