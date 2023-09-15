@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tickets | ' . Auth::user()->rol->nombre_rol)
+@section('title', 'Tickets | ' . Auth::user()->rol->nombre_rol . ' | ' . Auth::user()->cliente->razon_social)
 
 @section('content_header')
     <h1><span class="fas fa-fw fa-file">&nbsp;</span>Tickets</h1>
@@ -48,10 +48,12 @@
                     <td>{{ $ticket->descripcion }}</td>
                     <td>
                         <a href="{{ url('ver_ticket', $ticket->id) }}" class="text-info">Abrir</a>
-                        <br>
-                        <a href="{{ url('editarr_ticket', $ticket->id) }}"class="text-warning">Editar</a>
-                        <br>
-                        <a href="javascript:void(0)" class="text-danger">Eliminar</a>
+                        @if (Auth::user()->rol_id == 2 && false)
+                            <br>
+                            <a href="{{ url('editarr_ticket', $ticket->id) }}"class="text-warning">Editar</a>
+                            <br>
+                            <a href="javascript:void(0)" class="text-danger">Eliminar</a>
+                        @endif
                     </td>
                 </tr>
             @endforeach

@@ -6,3 +6,11 @@
         </a>
     </li>
 @endif
+@if (Auth::user()->rol_id == 1)
+    <li class="nav-item">
+        <a class="nav-link " href="{{ url('clientes') }}">
+            <i class="fas fa-fw fa-file "></i>
+            Clientes
+        </a>
+    </li>
+@endif

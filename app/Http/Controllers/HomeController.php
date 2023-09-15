@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ticket;
+use App\Models\Cliente;
 
 class HomeController extends Controller
 {
@@ -14,9 +15,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        #TODO: seleccionar solo tickets dependiendo el rol
-        $tickets =  Ticket::orderBy('id', 'DESC')->paginate(5);
-        return view('home', compact('tickets'));
+        if (\Auth::user()->rol_id != 1) {
+            $tickets =  Ticket::where('cliente_id', \Auth::user()->cliente_id)->orderBy('id', 'DESC')->paginate(5);
+            return view('home', compact('tickets'));
+        } else {
+
+            $clientes = Cliente::orderBy('razon_social')->get();
+            return view('super_user.home', compact('clientes'));
+        }
     }
     public function apiHome()
     {

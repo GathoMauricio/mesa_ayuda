@@ -26,7 +26,6 @@ class User extends Authenticatable
         'direccion',
         'password',
         'imagen',
-        'api_token',
     ];
 
 
@@ -52,6 +51,15 @@ class User extends Authenticatable
             'id'
         )
             ->withDefault();
+    }
+
+    public function getStatus()
+    {
+        if ($this->estatus) {
+            return "Activo";
+        } else {
+            return "Inactivo";
+        }
     }
 
     public function cliente()

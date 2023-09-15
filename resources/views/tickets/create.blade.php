@@ -5,7 +5,16 @@
 @section('content')
     <div class="container contact-form">
         <div class="contact-image">
-            <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact" />
+            @if (Auth::user()->cliente->imagen == 'cliente.png')
+                <img src="{{ asset('img/cliente.png') }}" alt="cliente-{{ Auth::user()->cliente->imagen }}"
+                    style="width:120px;height:120px;background-color:rgb(247, 240, 240);"
+                    class="rounded-circle shadow-4-strong p-1">
+            @else
+                <img src="{{ asset('storage/img/clientes/' . Auth::user()->cliente->imagen) }}"
+                    alt="cliente-{{ Auth::user()->cliente->imagen }}"
+                    style="width:120px;height:120px;background-color:rgb(247, 240, 240);"
+                    class="rounded-circle shadow-4-strong p-1">
+            @endif
         </div>
         <form action="{{ url('guardar_ticket') }}" method="POST">
             @csrf
@@ -104,10 +113,10 @@
         }
 
         .contact-image img {
-            border-radius: 6rem;
-            width: 11%;
+
+            width: 40%;
             margin-top: -3%;
-            transform: rotate(29deg);
+
         }
 
         .contact-form form {

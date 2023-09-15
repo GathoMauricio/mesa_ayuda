@@ -2,7 +2,18 @@ require("./bootstrap");
 import axios from "axios";
 window.Vue = require("vue").default;
 
-$(document).ready(function () {});
+$(document).ready(function () {
+    // alertify.confirm(
+    //     "Confirm Title",
+    //     "Confirm Message",
+    //     function () {
+    //         alertify.success("Ok");
+    //     },
+    //     function () {
+    //         alertify.error("Cancel");
+    //     }
+    // );
+});
 
 window.cargarCategorias = (value) => {
     if (value.length > 0) {
@@ -51,4 +62,18 @@ window.cargarSintomas = (value) => {
             `<option value>--Seleccione el síntoma--</option>`
         );
     }
+};
+
+window.eliminarCliente = (cliente_id) => {
+    console.log("confirm");
+    alertify.confirm(
+        "¿Eliminar Cliente??",
+        "Si elimina este cliente también se eliminarán los registros ligados a este tales como Empleados, Tickets y sus seguimientos.\n¿Realmente desea eliminar todo?",
+        function () {
+            $("#form_eliminar_cliente_" + cliente_id).submit();
+        },
+        function () {
+            alertify.error("Cancel");
+        }
+    );
 };

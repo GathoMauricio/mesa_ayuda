@@ -17,6 +17,7 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->bigInteger('estatus_id');
             $table->bigInteger('sintoma_id');
+            $table->bigInteger('cliente_id');
             $table->bigInteger('usuario_final_id');
             $table->string('folio');
             $table->string('prioridad');

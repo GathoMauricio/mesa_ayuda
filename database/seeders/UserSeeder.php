@@ -11,8 +11,8 @@ class UserSeeder extends Seeder
     {
         User::truncate();
         User::create([
-            'rol_id' => 2,
-            'cliente_id' => 1, //SuperUsuario
+            'rol_id' => 1,
+            //'cliente_id' => 1, //SuperUsuario
             'estatus' => 1,
             'nombre' => 'Jacky',
             'apaterno' => 'skellington',
@@ -24,8 +24,9 @@ class UserSeeder extends Seeder
             'password' => '12345678',
             'imagen' => 'perfil.png',
         ]);
+        ######################################################
         User::create([
-            'rol_id' => 2, //Administrador
+            'rol_id' => 2, //Administrador KatzeSystems
             'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Soy Administrador',
@@ -33,13 +34,13 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'administrador@mail.com',
+            'email' => 'administrador@katzesystems.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',
         ]);
         User::create([
-            'rol_id' => 3, //Supervisor
+            'rol_id' => 3, //Supervisor KatzeSystems
             'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Soy Supervisor',
@@ -47,13 +48,13 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'supervisor@mail.com',
+            'email' => 'supervisor@katzesystems.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',
         ]);
         User::create([
-            'rol_id' => 4, //Usuario Final
+            'rol_id' => 4, //Usuario Final KatzeSystems
             'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Usuario Finalr',
@@ -61,13 +62,13 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'usuario_final@mail.com',
+            'email' => 'usuario_final@katzesystems.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',
         ]);
         User::create([
-            'rol_id' => 5, //Soporte Técnico
+            'rol_id' => 5, //Soporte Técnico KatzeSystems
             'cliente_id' => 1,
             'estatus' => 1,
             'nombre' => 'Soporte Tecnico',
@@ -75,7 +76,7 @@ class UserSeeder extends Seeder
             'amaterno' => 'Ipsum',
             'telefono' => '5585457845',
             'telefono_emergencia' => '5525148694',
-            'email' => 'soporte_tecnico@mail.com',
+            'email' => 'soporte_tecnico@katzesystems.com',
             'direccion' => 'Bahia de las palmas #10 Anzures',
             'password' => '12345678',
             'imagen' => 'perfil.png',

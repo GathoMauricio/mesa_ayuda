@@ -325,11 +325,11 @@ return [
             // 'label_color' => 'success',
         ],
         //['header' => 'CONFIGURACIÓN'],
-        [
-            'text' => 'Perfil',
-            'url'  => '/',
-            'icon' => 'fas fa-fw fa-cogs',
-        ],
+        // [
+        //     'text' => 'Perfil',
+        //     'url'  => '/',
+        //     'icon' => 'fas fa-fw fa-cogs',
+        // ],
         //     [
         //         'text' => 'change_password',
         //         'url'  => 'admin/settings',

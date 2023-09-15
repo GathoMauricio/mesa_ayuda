@@ -13,6 +13,7 @@ class Ticket extends Model
     protected $fillable = [
         'estatus_id',
         'sintoma_id',
+        'cliente_id',
         'usuario_final_id',
         'folio',
         'prioridad',
@@ -25,6 +26,7 @@ class Ticket extends Model
         parent::boot();
         static::creating(function ($query) {
             $query->estatus_id = 1;
+            $query->cliente_id = \Auth::user()->cliente_id;
             $query->usuario_final_id = isset(\Auth::user()->id) ? \Auth::user()->id : 1;
         });
     }

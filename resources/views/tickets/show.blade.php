@@ -1,11 +1,20 @@
 @extends('adminlte::page')
 
-@section('title', 'Iniciar Ticket | ' . Auth::user()->rol->nombre_rol)
+@section('title', 'Ticket ' . $ticket->folio . '| ' . Auth::user()->rol->nombre_rol)
 
 @section('content')
     <div class="container contact-form">
         <div class="contact-image">
-            <img src="https://i.ibb.co/KjH5bbc/mesa-ayuda.png" alt="rocket_contact" />
+            @if (Auth::user()->cliente->imagen == 'cliente.png')
+                <img src="{{ asset('img/cliente.png') }}" alt="cliente-{{ Auth::user()->cliente->imagen }}"
+                    style="width:120px;height:120px;background-color:rgb(247, 240, 240);"
+                    class="rounded-circle shadow-4-strong p-1">
+            @else
+                <img src="{{ asset('storage/img/clientes/' . Auth::user()->cliente->imagen) }}"
+                    alt="cliente-{{ Auth::user()->cliente->imagen }}"
+                    style="width:120px;height:120px;background-color:rgb(247, 240, 240);"
+                    class="rounded-circle shadow-4-strong p-1">
+            @endif
         </div>
         <form>
             @csrf
