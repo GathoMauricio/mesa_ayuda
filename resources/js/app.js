@@ -67,13 +67,27 @@ window.cargarSintomas = (value) => {
 window.eliminarCliente = (cliente_id) => {
     console.log("confirm");
     alertify.confirm(
-        "¿Eliminar Cliente??",
-        "Si elimina este cliente también se eliminarán los registros ligados a este tales como Empleados, Tickets y sus seguimientos.\n¿Realmente desea eliminar todo?",
+        "¿Eliminar Cliente?",
+        "Si elimina este cliente también se eliminarán los registros ligados a este tales como Empleados, Tickets y sus Seguimientos.\n¿Realmente desea eliminar todo?",
         function () {
             $("#form_eliminar_cliente_" + cliente_id).submit();
         },
         function () {
-            alertify.error("Cancel");
+            //alertify.error("Cancel");
+        }
+    );
+};
+
+window.eliminarEmpleado = (empleado_id) => {
+    console.log("confirm");
+    alertify.confirm(
+        "¿Eliminar Empleado??",
+        "Si elimina este empleado también se eliminarán los registros ligados a este tales como Tickets y sus Seguimientos.\n¿Realmente desea eliminar todo?",
+        function () {
+            $("#form_eliminar_empleado_" + empleado_id).submit();
+        },
+        function () {
+            //alertify.error("Cancel");
         }
     );
 };

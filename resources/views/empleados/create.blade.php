@@ -1,32 +1,36 @@
 @extends('adminlte::page')
 
-@section('title', 'Nuevo clinete | ' . Auth::user()->rol->nombre_rol)
+@section('title', 'Nuevo empleado | ' . Auth::user()->rol->nombre_rol)
 
 @section('content')
     <div class="container contact-form">
         <div class="contact-image">
             <img src="https://i.ibb.co/KjH5bbc/mesa-ayuda.png" alt="rocket_contact" />
         </div>
-        <form action="{{ url('clientes') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('empleados') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <h3>Nuevo Cliente</h3>
+            <h3>Nuevo Empleado</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="razon_social" class="text-primary">Razón social</label>
-                        <input type="text" name="razon_social" value="{{ old('razon_social') }}"
-                            placeholder="Nobre, equipo , marca, etc..." class="form-control" required>
-                        @error('razon_social')
+                        <label for="rol_id" class="text-primary">Rol</label>
+                        <select name="rol_id" value="{{ old('rol_id') }}" class="form-select" required>
+                            <option value>--Seleccione una opción--</option>
+                            @foreach ($roles as $rol)
+                                <option value="{{ $rol->id }}">{{ $rol->nombre_rol }}</option>
+                            @endforeach
+                        </select>
+                        @error('rol_id')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
                             </small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="rfc" class="text-primary">RFC</label>
-                        <input type="text" placeholder="RFC (opcional)" value="{{ old('rfc') }}" name="rfc"
-                            class="form-control">
-                        @error('rfc')
+                        <label for="telefono" class="text-primary">Teléfono</label>
+                        <input type="text" placeholder="Teléfono (opcional)" value="{{ old('telefono') }}"
+                            name="telefono" class="form-control">
+                        @error('telefono')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
                             </small>
@@ -48,7 +52,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email" class="text-primary">Email del administrador</label>
+                        <label for="email" class="text-primary">Email</label>
                         <input type="email" value="{{ old('email') }}" placeholder="Email" name="email"
                             class="form-control" required>
                         @error('email')
@@ -58,7 +62,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nombre" class="text-primary">Nombre(s) del Administrador</label>
+                        <label for="nombre" class="text-primary">Nombre(s)</label>
                         <input type="text" value="{{ old('nombre') }}" placeholder="Nombre" name="nombre"
                             class="form-control" required>
                         @error('nombre')

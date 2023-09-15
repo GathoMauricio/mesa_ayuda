@@ -1,32 +1,41 @@
 @extends('adminlte::page')
 
-@section('title', 'Nuevo clinete | ' . Auth::user()->rol->nombre_rol)
+@section('title', 'Editar empleado | ' . Auth::user()->rol->nombre_rol)
 
 @section('content')
     <div class="container contact-form">
         <div class="contact-image">
             <img src="https://i.ibb.co/KjH5bbc/mesa-ayuda.png" alt="rocket_contact" />
         </div>
-        <form action="{{ url('clientes') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('empleados', $empleado->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <h3>Nuevo Cliente</h3>
+            @method('PUT')
+            <h3>Editar Empleado {{ $empleado->nombre }} {{ $empleado->apaterno }} {{ $empleado->amaterno }}</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="razon_social" class="text-primary">Razón social</label>
-                        <input type="text" name="razon_social" value="{{ old('razon_social') }}"
-                            placeholder="Nobre, equipo , marca, etc..." class="form-control" required>
-                        @error('razon_social')
+                        <label for="rol_id" class="text-primary">Rol</label>
+                        <select name="rol_id" value="{{ old('rol_id') }}" class="form-select" required>
+                            <option value>--Seleccione una opción--</option>
+                            @foreach ($roles as $rol)
+                                @if ($empleado->rol_id == $rol->id)
+                                    <option value="{{ $rol->id }}" selected>{{ $rol->nombre_rol }}</option>
+                                @else
+                                    <option value="{{ $rol->id }}">{{ $rol->nombre_rol }}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                        @error('rol_id')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
                             </small>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="rfc" class="text-primary">RFC</label>
-                        <input type="text" placeholder="RFC (opcional)" value="{{ old('rfc') }}" name="rfc"
-                            class="form-control">
-                        @error('rfc')
+                        <label for="telefono" class="text-primary">Teléfono</label>
+                        <input type="text" placeholder="Teléfono (opcional)"
+                            value="{{ old('telefono', $empleado->telefono) }}" name="telefono" class="form-control">
+                        @error('telefono')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
                             </small>
@@ -38,7 +47,7 @@
                     </div>
                     <div class="form-group">
                         <label for="direccion" class="text-primary">Dirección</label>
-                        <textarea name="direccion" placeholder="Dirección (opcional)" class="form-control" rows="8">{{ old('direccion') }}</textarea>
+                        <textarea name="direccion" placeholder="Dirección (opcional)" class="form-control" rows="2">{{ old('direccion', $empleado->direccion) }}</textarea>
                         @error('direccion')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
@@ -48,9 +57,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="email" class="text-primary">Email del administrador</label>
-                        <input type="email" value="{{ old('email') }}" placeholder="Email" name="email"
-                            class="form-control" required>
+                        <label for="email" class="text-primary">Email</label>
+                        <input type="email" value="{{ $empleado->email }}" placeholder="Email" name="email"
+                            class="form-control" disabled>
                         @error('email')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
@@ -58,9 +67,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="nombre" class="text-primary">Nombre(s) del Administrador</label>
-                        <input type="text" value="{{ old('nombre') }}" placeholder="Nombre" name="nombre"
-                            class="form-control" required>
+                        <label for="nombre" class="text-primary">Nombre(s)</label>
+                        <input type="text" value="{{ old('nombre', $empleado->nombre) }}" placeholder="Nombre"
+                            name="nombre" class="form-control" required>
                         @error('nombre')
                             <small>
                                 <strong class="text-danger">{{ $message }}</strong>
@@ -68,11 +77,11 @@
                         @enderror
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="apaterno" class="text-primary">A. Paterno Administrador</label>
-                                <input type="text" value="{{ old('apaterno') }}" placeholder="Apellid paterno"
-                                    name="apaterno" class="form-control">
+                                <input type="text" value="{{ old('apaterno', $empleado->apaterno) }}"
+                                    placeholder="Apellid paterno" name="apaterno" class="form-control">
                                 @error('apaterno')
                                     <small>
                                         <strong class="text-danger">{{ $message }}</strong>
@@ -80,11 +89,11 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="amaterno" class="text-primary">A. Materno Administrador</label>
-                                <input type="text" value="{{ old('amaterno') }}" placeholder="Apellido materno"
-                                    name="amaterno" class="form-control">
+                                <input type="text" value="{{ old('amaterno', $empleado->amaterno) }}"
+                                    placeholder="Apellido materno" name="amaterno" class="form-control">
                                 @error('amaterno')
                                     <small>
                                         <strong class="text-danger">{{ $message }}</strong>
@@ -95,7 +104,7 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="form-group">
+                        {{--  <div class="form-group">
                             <label for="password" class="text-primary">Contraseña</label>
                             <input type="password" placeholder="Contraeña" name="password" class="form-control" required>
                             @error('password')
@@ -113,7 +122,7 @@
                                     <strong class="text-danger">{{ $message }}</strong>
                                 </small>
                             @enderror
-                        </div>
+                        </div>  --}}
 
                         <div class="form-group">
                             <input type="submit" name="btnSubmit" class="btnContact btn-block" value="Guardar" />

@@ -12,7 +12,8 @@ Route::get('/editar_ticket/{id}', [\App\Http\Controllers\TicketController::class
 Route::put('updater_ticket/{id}', [\App\Http\Controllers\TicketController::class, 'update']);
 #Clientes
 Route::resource('/clientes', ClienteController::class);
-
+#Empleados
+Route::resource('/empleados', EmpleadoController::class);
 
 
 Route::any('/', function () {

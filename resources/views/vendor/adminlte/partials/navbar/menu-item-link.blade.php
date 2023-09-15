@@ -14,3 +14,11 @@
         </a>
     </li>
 @endif
+@if (Auth::user()->rol_id == 2)
+    <li class="nav-item">
+        <a class="nav-link " href="{{ url('empleados') }}">
+            <i class="fas fa-fw fa-file "></i>
+            Empleados
+        </a>
+    </li>
+@endif
