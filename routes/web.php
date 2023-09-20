@@ -14,7 +14,8 @@ Route::put('updater_ticket/{id}', [\App\Http\Controllers\TicketController::class
 Route::resource('/clientes', ClienteController::class);
 #Empleados
 Route::resource('/empleados', EmpleadoController::class);
-
+#seguimientos
+Route::post('/guardar_seguimiento', [\App\Http\Controllers\SeguimientoController::class, 'store']);
 
 Route::any('/', function () {
 })->name('/');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Area;
 use App\Models\Categoria;
+use App\Models\Seguimiento;
 use App\Models\Sintoma;
 
 class TicketController extends Controller
@@ -132,7 +133,8 @@ class TicketController extends Controller
     public function show($id)
     {
         $ticket = Ticket::findOrFail($id);
-        return view('tickets.show', compact('ticket'));
+        $seguimientos = Seguimiento::where('ticket_id', $id)->orderBy('id', 'DESC')->get();
+        return view('tickets.show', compact('ticket', 'seguimientos'));
     }
 
     public function edit($id)

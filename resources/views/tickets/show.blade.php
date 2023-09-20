@@ -46,6 +46,42 @@
                 </div>
             </div>
         </form>
+        <h4 class="text-center">Seguimientos</h4>
+        <div class="container p-6">
+            <form action="{{ url('guardar_seguimiento') }}" method="POST">
+                @csrf
+                <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
+                <textarea name="texto" placeholder="Enviar seguimiento..." class="form-control" required></textarea>
+                <br>
+                <input type="submit" value="Guardar" class="btn btn-primary float-right">
+                <br><br>
+                @if (count($seguimientos) > 0)
+                    @foreach ($seguimientos as $seguimiento)
+                        <div class="alert alert-info p-2" role="alert">
+                            <small class="float-right">
+                                {{ $seguimiento->autor->rol->nombre_rol }}
+                            </small>
+                            <Label>
+                                {{ $seguimiento->autor->nombre }}
+                                {{ $seguimiento->autor->apaterno }}
+                                {{ $seguimiento->autor->amaterno }}
+                            </Label>
+                            <br>
+                            {{ $seguimiento->texto }}
+                            <br>
+                            <small class="float-right">
+                                {{ $seguimiento->created_at }}
+                            </small>
+                            <br>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="alert alert-info p-2" role="alert">
+                        No se han agregado seguimientos
+                    </div>
+                @endif
+            </form>
+        </div>
     </div>
 @stop
 
