@@ -11,10 +11,10 @@ use App\Models\Sintoma;
 
 class TicketController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     public function cargarCategorias($area_id)
     {
         $categorias = Categoria::where('area_id', $area_id)->get();
