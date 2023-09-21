@@ -131,3 +131,31 @@ window.eliminarSintoma = (id) => {
         }
     );
 };
+let contadorArchivosTicket = 0;
+window.adjuntarArchivo = () => {
+    contadorArchivosTicket++;
+    if (contadorArchivosTicket > 0) {
+        $("#alerta_no_archivos").css("display", "none");
+    }
+    $("#contenedor_archivos").append(`
+    <div class="col-md-6" id="archivo_adjunto_ticket_${contadorArchivosTicket}">
+        <a href="javascript:void(0)" onclick="removerInputArchivo(${contadorArchivosTicket})"
+            class="float-right text-danger">X</a>
+        <label class="font-weight-bold">Seleccione archivo</label>
+        <input type="file" name="archivo[]" class="form-control" accept=".xlsx,.xls,image/*,.doc, .docx,.ppt, .pptx,.txt,.pdf" required>
+    </div>
+    `);
+};
+
+window.removerInputArchivo = (id) => {
+    $("#archivo_adjunto_ticket_" + id).remove();
+    contadorArchivosTicket--;
+    if (contadorArchivosTicket <= 0) {
+        $("#alerta_no_archivos").css("display", "block");
+    }
+};
+
+window.descargarArchivoTicket = (id) => {
+    console.log("form_descargar_archivo_ticket_" + id);
+    $("#form_descargar_archivo_ticket_" + id).submit();
+};

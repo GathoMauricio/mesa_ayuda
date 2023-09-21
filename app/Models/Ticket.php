@@ -65,4 +65,8 @@ class Ticket extends Model
     {
         return $this->hasMany('App\Models\Seguimiento');
     }
+    public function archivos()
+    {
+        return $this->hasMany('App\Models\TicketArchivo');
+    }
 }

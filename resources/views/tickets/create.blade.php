@@ -16,7 +16,7 @@
                     class="rounded-circle shadow-4-strong p-1">
             @endif
         </div>
-        <form action="{{ url('guardar_ticket') }}" method="POST">
+        <form action="{{ url('guardar_ticket') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <h3>Iniciar Ticket</h3>
             <div class="row">
@@ -82,6 +82,25 @@
                     </div>
                     <div class="form-group">
                         <input type="submit" name="btnSubmit" class="btnContact btn-block" value="Enviar" />
+                    </div>
+                </div>
+                <hr>
+                <div style="width: 100%">
+                    <a href="javascript:void(0)" onclick="adjuntarArchivo()" class="float-right">Agregar adjunto</a>
+                    <h5 class="text-primary">Archivos adjuntos</h5>
+                    <div class="container">
+                        <div class="row" id="contenedor_archivos">
+                            {{--  <div class="col-md-6" id="archivo_adjunto_ticket_cont">
+                                <a href="javascript:void(0)" onclick="removerInputArchivo(cont)"
+                                    class="float-right text-danger">X</a>
+                                <label class="font-weight-bold">Seleccione archivo</label>
+                                <input type="file" name="archivo[]" class="form-control">
+                            </div>  --}}
+                        </div>
+                    </div>
+                    <br><br><br>
+                    <div id="alerta_no_archivos" class="alert alert-info" role="alert">
+                        No se han agregado archivos
                     </div>
                 </div>
             </div>

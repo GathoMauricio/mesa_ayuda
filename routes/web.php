@@ -26,6 +26,8 @@ Route::delete('/eliminar_area/{id}', [\App\Http\Controllers\CatalogoController::
 Route::delete('/eliminar_categoria/{id}', [\App\Http\Controllers\CatalogoController::class, 'eliminarCategoria']);
 Route::delete('/eliminar_sintoma/{id}', [\App\Http\Controllers\CatalogoController::class, 'eliminarSintoma']);
 
+Route::get('descargar_archivo_ticket', [App\Http\Controllers\TicketArchivoController::class, 'descargarArchivo']);
+
 Route::any('/', function () {
 })->name('/');
 Route::get('/', function () {

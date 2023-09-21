@@ -45,7 +45,27 @@
                     </div>
                 </div>
             </div>
+            <br><br>
+            <h4>Archivos adjuntos</h4>
+            <div class="container">
+                <table>
+                    @foreach ($ticket->archivos as $archivo)
+                        <tr>
+                            <td>
+                                <form id="form_descargar_archivo_ticket_{{ $archivo->id }}"
+                                    action="{{ url('descargar_archivo_ticket') }}">
+                                    <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
+                                    <input type="hidden" name="archivo" value="{{ $archivo->nombre }}">
+                                </form>
+                                <a href="javascript:void(0)" onclick="descargarArchivoTicket({{ $archivo->id }})"
+                                    class="text-primary">{{ $archivo->nombre }}</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </table>
+            </div>
         </form>
+
         <h4 class="text-center">Seguimientos</h4>
         <div class="container p-6">
             <form action="{{ url('guardar_seguimiento') }}" method="POST">

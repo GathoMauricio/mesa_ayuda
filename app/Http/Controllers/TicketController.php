@@ -8,6 +8,7 @@ use App\Models\Area;
 use App\Models\Categoria;
 use App\Models\Seguimiento;
 use App\Models\Sintoma;
+use App\Models\TicketArchivo;
 
 class TicketController extends Controller
 {
@@ -65,6 +66,20 @@ class TicketController extends Controller
             'descripcion' => $request->descripcion,
             'origen' => 'Web'
         ]);
+        if ($request->hasFile('archivo')) {
+            foreach ($request->file('archivo') as $archivo) {
+                $nombre = $archivo->getClientOriginalName();
+                $ruta = storage_path('app/public/archivos/' . $ticket->id . '/');
+                $archivo->move($ruta, $nombre);
+                $tipo = $archivo->getClientMimeType();
+                TicketArchivo::create([
+                    'ticket_id' => $ticket->id,
+                    'nombre' => $nombre,
+                    'ruta' => $ruta,
+                    'mime_type' => $tipo
+                ]);
+            }
+        }
         if ($ticket) {
             #TODO: Notificar via email a los usuarios correspondientes
             \Session::flash('success', 'El ticket se creo correctamente con el folio ' . $ticket->folio);
