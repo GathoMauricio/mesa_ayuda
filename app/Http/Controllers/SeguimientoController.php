@@ -24,4 +24,23 @@ class SeguimientoController extends Controller
             return redirect()->back();
         }
     }
+
+    public function apiStoreSeguimiento(Request $request)
+    {
+        $seguimiento = Seguimiento::create([
+            'ticket_id' => $request->ticketId,
+            'texto' => $request->texto,
+        ]);
+        if ($seguimiento) {
+            return response()->json([
+                'estatus' => 1,
+                'mensaje' => "Seguimiento almacenado en el folio " . $seguimiento->ticket->folio
+            ]);
+        } else {
+            return response()->json([
+                'estatus' => 0,
+                'mensaje' => "Error al crear el registro"
+            ]);
+        }
+    }
 }

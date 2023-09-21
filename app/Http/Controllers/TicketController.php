@@ -172,6 +172,40 @@ class TicketController extends Controller
         }
     }
 
+    public function apiGetTicket(Request $request)
+    {
+        $ticket = Ticket::findOrFail($request->ticket_id);
+        $seguimientos = Seguimiento::where('ticket_id', $ticket->id)->orderBy('id', 'DESC')->get();
+        $seguimientos_datos = [];
+        foreach ($seguimientos as $seguimiento) {
+            $seguimientos_datos[] = [
+                'id' => $seguimiento->id,
+                'ticket_id' => $seguimiento->ticket_id,
+                'autor' => $seguimiento->autor->nombre . ' ' . $seguimiento->autor->apaterno . ' ' . $seguimiento->autor->amaterno,
+                'texto' => $seguimiento->texto,
+                'created_at' => $seguimiento->created_at,
+            ];
+        }
+        $datos = [
+            'id' => $ticket->id,
+            'estatus' => $ticket->estatus->estatus,
+            'area' => $ticket->sintoma->categoria->area->area,
+            'categoria' => $ticket->sintoma->categoria->categoria,
+            'sintoma' => $ticket->sintoma->sintoma,
+            'usuarioFinal' => $ticket->usuario_final->nombre . ' ' . $ticket->usuario_final->apaterno . ' ' . $ticket->usuario_final->amaterno,
+            'folio' => $ticket->folio,
+            'prioridad' => $ticket->prioridad,
+            'descripcion' => $ticket->descripcion,
+            'seguimientos' => $seguimientos_datos,
+        ];
+
+        return response()->json([
+            "estatus" => 1,
+            "mensaje" => "Datos obtenidos",
+            "datos" => $datos
+        ]);
+    }
+
     public function destroy($id)
     {
         //

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ticket;
 use App\Models\Cliente;
+use App\Models\Seguimiento;
 
 class HomeController extends Controller
 {
@@ -30,6 +31,17 @@ class HomeController extends Controller
         $tickets =  Ticket::orderBy('id', 'DESC')->get();
         $datos = [];
         foreach ($tickets as $ticket) {
+            $seguimientos = Seguimiento::where('ticket_id', $ticket->id)->orderBy('id', 'DESC')->get();
+            $seguimientos_datos = [];
+            foreach ($seguimientos as $seguimiento) {
+                $seguimientos_datos[] = [
+                    'id' => $seguimiento->id,
+                    'ticket_id' => $seguimiento->ticket_id,
+                    'autor' => $seguimiento->autor->nombre . ' ' . $seguimiento->autor->apaterno . ' ' . $seguimiento->autor->amaterno,
+                    'texto' => $seguimiento->texto,
+                    'created_at' => $seguimiento->created_at,
+                ];
+            }
             $datos[] = [
                 'id' => $ticket->id,
                 'estatus' => $ticket->estatus->estatus,
@@ -40,6 +52,7 @@ class HomeController extends Controller
                 'folio' => $ticket->folio,
                 'prioridad' => $ticket->prioridad,
                 'descripcion' => $ticket->descripcion,
+                'seguimientos' => $seguimientos_datos,
             ];
         }
         return response()->json([

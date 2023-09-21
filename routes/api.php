@@ -15,7 +15,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('api-obtener-categorias-por-area', [\App\Http\Controllers\CategoriaController::class, 'apiObtenerCategoriasPorArea']);
     Route::get('api-obtener-sintomas-por-categoria', [\App\Http\Controllers\SintomaController::class, 'apiObtenerSintomasPorCategoria']);
     Route::post('api-store-ticket', [\App\Http\Controllers\TicketController::class, 'apiStoreTicket']);
-    //api-store-ticket
+    Route::post('api-store-seguimiento', [\App\Http\Controllers\SeguimientoController::class, 'apiStoreSeguimiento']);
+    Route::get('api-get-ticket', [\App\Http\Controllers\TicketController::class, 'apiGetTicket']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
