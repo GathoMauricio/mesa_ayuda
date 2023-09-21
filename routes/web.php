@@ -16,6 +16,15 @@ Route::resource('/clientes', ClienteController::class);
 Route::resource('/empleados', EmpleadoController::class);
 #seguimientos
 Route::post('/guardar_seguimiento', [\App\Http\Controllers\SeguimientoController::class, 'store']);
+#Catálogos
+Route::get('/catalogos', [\App\Http\Controllers\CatalogoController::class, 'index']);
+Route::post('/guardar_area', [\App\Http\Controllers\CatalogoController::class, 'guardarArea']);
+Route::post('/guardar_categoria', [\App\Http\Controllers\CatalogoController::class, 'guardarCategoria']);
+Route::post('/guardar_sintoma', [\App\Http\Controllers\CatalogoController::class, 'guardarSintoma']);
+
+Route::delete('/eliminar_area/{id}', [\App\Http\Controllers\CatalogoController::class, 'eliminarArea']);
+Route::delete('/eliminar_categoria/{id}', [\App\Http\Controllers\CatalogoController::class, 'eliminarCategoria']);
+Route::delete('/eliminar_sintoma/{id}', [\App\Http\Controllers\CatalogoController::class, 'eliminarSintoma']);
 
 Route::any('/', function () {
 })->name('/');

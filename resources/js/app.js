@@ -91,3 +91,43 @@ window.eliminarEmpleado = (empleado_id) => {
         }
     );
 };
+
+window.eliminarArea = (id) => {
+    console.log("confirm");
+    alertify.confirm(
+        "¿Eliminar?",
+        "¿Realmente desea eliminar el registro?",
+        function () {
+            $("#form_eliminar_area_" + id).submit();
+        },
+        function () {
+            //alertify.error("Cancel");
+        }
+    );
+};
+window.eliminarCategoria = (id) => {
+    console.log("confirm");
+    alertify.confirm(
+        "¿Eliminar?",
+        "¿Realmente desea eliminar el registro?",
+        function () {
+            $("#form_eliminar_categoria_" + id).submit();
+        },
+        function () {
+            //alertify.error("Cancel");
+        }
+    );
+};
+window.eliminarSintoma = (id) => {
+    console.log("confirm");
+    alertify.confirm(
+        "¿Eliminar?",
+        "¿Realmente desea eliminar el registro?",
+        function () {
+            $("#form_eliminar_sintoma_" + id).submit();
+        },
+        function () {
+            //alertify.error("Cancel");
+        }
+    );
+};
